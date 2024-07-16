@@ -24,7 +24,17 @@ import FragmentDemo from "./components/Fragment/FragmentDemo"
 import Table from "./components/Fragment/Table"
 // import PureComp from "./components/Fragment/PureComp"
 import ParentComp from "./components/Fragment/ParentComp"
-import RefDemo from "./components/Ref/RefDemo"
+//import RefDemo from "./components/Ref/RefDemo"
+//import FocusInput from "./components/Ref/FocusInput"
+import FRParentInput from "./components/Ref/FRParentInput"
+import PortalDemo from "./components/PortalDemo"
+import Hero from "./components/errorHandling/Hero"
+import ErrorBoundary from "./components/errorHandling/ErrorBoundary"
+import ClickCounter from "./components/hoc/ClickCounter"
+//import HoverCounter from "./components/hoc/HoverCounter"
+import ClickCounterTwo from "./Render/ClickCounterTwo"
+//import User from "./Render/User"
+import HoverCounterTwo from "./Render/HoverCounterTwo"
 
 
 
@@ -90,7 +100,37 @@ const x = true
         <ParentComp />
       </div>
       <div> 
-      <RefDemo />
+      {/* <RefDemo /> */}
+    {/* < FocusInput  /> */}
+     <FRParentInput />
+
+     <PortalDemo />
+     <ErrorBoundary> 
+      <Hero heroValidaty='Ajoke'> </Hero> 
+      </ErrorBoundary>
+     <ErrorBoundary>   
+       <Hero heroValidaty='Tobi'> </Hero>
+        </ErrorBoundary>
+      <ErrorBoundary>    
+        < Hero heroValidaty='Joke'> </Hero>
+         </ErrorBoundary>
+          <ClickCounter /> 
+        
+          
+    <Counter>{ (count, incrementCount)=> (
+     <ClickCounterTwo count={count} incrementCount={incrementCount} />
+    )} 
+    </Counter>
+
+<Counter >{ (count, incrementCount)=> (
+     <HoverCounterTwo count={count} incrementCount={incrementCount} />
+    )} 
+     </Counter>
+    
+
+     {/*  <HoverCounterTwo />   
+        <ClickCounterTwo />
+          <User render={ (isLoggedIn) => isLoggedIn ? "Included" : "Guest" } /> */}
       </div>
 
     </div>
