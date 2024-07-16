@@ -35,8 +35,14 @@ import ClickCounter from "./components/hoc/ClickCounter"
 import ClickCounterTwo from "./Render/ClickCounterTwo"
 //import User from "./Render/User"
 import HoverCounterTwo from "./Render/HoverCounterTwo"
+import ComponentC from "./components/Context/ComponentC"
+import { UserProvider } from "./components/Context/UserContext"
 
-
+const heading = {
+  fontSize: '27px',
+  fontWeight: 'bold', 
+  color: 'blue',
+}
 
 
 const  App = () => {
@@ -47,7 +53,14 @@ const x = true
         <Header title={'Greatness'} />
 
 
-        
+        <p> <span style={heading} > Context section 
+      
+        <UserProvider value="Nifesimi">
+        <ComponentC />
+        </UserProvider>
+        </span>
+    </p> 
+       
         <h1> Hello From React</h1>
         <h2> Hello {name} </h2> 
         <p>{x ? "Yes" : "No"}</p>
@@ -64,10 +77,21 @@ const x = true
         <Welcome name="Ja" heroName="Batman" />
         <Welcome name="hiii" heroName="Batman" />
         <Welcome name="iye" heroName="Batman" />
+        <Counter>{ (count, incrementCount)=> (
+     <ClickCounterTwo count={count} incrementCount={incrementCount} />
+    )} 
+    </Counter>
+
+<Counter >{ (count, incrementCount)=> (
+     <HoverCounterTwo count={count} incrementCount={incrementCount} />
+    )} 
+     </Counter>
 
   <Sample>
   <p>
       This is a children Props test
+
+      
       </p>
   </Sample>
 
@@ -117,15 +141,7 @@ const x = true
           <ClickCounter /> 
         
           
-    <Counter>{ (count, incrementCount)=> (
-     <ClickCounterTwo count={count} incrementCount={incrementCount} />
-    )} 
-    </Counter>
-
-<Counter >{ (count, incrementCount)=> (
-     <HoverCounterTwo count={count} incrementCount={incrementCount} />
-    )} 
-     </Counter>
+    
     
 
      {/*  <HoverCounterTwo />   
@@ -133,6 +149,7 @@ const x = true
           <User render={ (isLoggedIn) => isLoggedIn ? "Included" : "Guest" } /> */}
       </div>
 
+  
     </div>
   )
 }
